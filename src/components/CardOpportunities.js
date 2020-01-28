@@ -33,7 +33,7 @@ function CardOpportunities() {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar style={{backgroundColor: colors.green}}>4</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.green}}>4</Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Ganhas" secondary="R$ 20.000,00" />
               </ListItem>
@@ -41,7 +41,7 @@ function CardOpportunities() {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar style={{backgroundColor: colors.red}}>1</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.red}}>1</Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Perdida" secondary="R$ 4.300,00" />
               </ListItem>
@@ -49,7 +49,7 @@ function CardOpportunities() {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar style={{backgroundColor: colors.blue}}>2</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>2</Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Abertas" secondary="Diversas moedas" />
               </ListItem>
@@ -57,7 +57,7 @@ function CardOpportunities() {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar style={{backgroundColor: colors.gray}}>0</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>0</Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Descartadas" secondary="-" />
               </ListItem>

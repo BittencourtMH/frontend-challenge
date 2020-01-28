@@ -19,19 +19,19 @@ function CardSecurities() {
         <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar style={{backgroundColor: colors.red}}>1</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.red}}>1</Avatar>
             </ListItemAvatar>
             <ListItemText primary="Vencidos" secondary="R$ 3.105,00" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar style={{backgroundColor: colors.orange}}>2</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.orange}}>2</Avatar>
             </ListItemAvatar>
             <ListItemText primary="A vencer" secondary="R$ 3.105,00" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar style={{backgroundColor: colors.green}}>2</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.green}}>2</Avatar>
             </ListItemAvatar>
             <ListItemText primary="Pagos" secondary="R$ 3.105,00" />
           </ListItem>

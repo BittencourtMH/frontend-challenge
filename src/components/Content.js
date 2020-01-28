@@ -6,28 +6,32 @@ import CardOpportunities from './CardOpportunities';
 import CardCredit from './CardCredit';
 import CardSales from './CardSales';
 import CardSecurities from './CardSecurities';
+import CardActivities from './CardActivities';
 
 function Content() {
   return (
     <div>
-      <Grid container spacing="1">
-        <Grid item xs="6">
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
           <CardGeneral />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <CardLocation />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <CardOpportunities />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <CardCredit />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <CardSales />
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <CardSecurities />
+        </Grid>
+        <Grid item xs={12}>
+          <CardActivities />
         </Grid>
       </Grid>
     </div>

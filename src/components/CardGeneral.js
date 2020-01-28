@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
   ListItemAvatar,
+  ListItemIcon,
   ListItemText,
   Typography
 } from '@material-ui/core';
@@ -23,10 +24,7 @@ function CardGeneral() {
         <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar
-                src="/broken-image.jpg"
-                style={{marginRight: 16, width: '4em', height: '4em'}}
-              />
+              <Avatar style={{marginRight: 16, width: '4em', height: '4em'}} />
             </ListItemAvatar>
             <ListItemText
               primary="Justine Robinson"
@@ -38,20 +36,21 @@ function CardGeneral() {
                   <Chip label="Ativo" color="primary" />
                 </React.Fragment>
               }
+              secondaryTypographyProps={{component: 'div'}}
             />
           </ListItem>
         </List>
         <List>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemIcon>
               <Phone />
-            </ListItemAvatar>
+            </ListItemIcon>
             <ListItemText primary="(45) 99555-5555" secondary="Celular" />
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemIcon>
               <Mail />
-            </ListItemAvatar>
+            </ListItemIcon>
             <ListItemText primary="justine@email.com" secondary="Trabalho" />
           </ListItem>
         </List>

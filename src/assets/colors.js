@@ -6,3 +6,5 @@ const colors = {
   red: '#c62828',
   yellow: '#f9a825'
 }
+
+export default colors;

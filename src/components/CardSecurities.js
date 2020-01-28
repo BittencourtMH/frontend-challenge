@@ -9,6 +9,7 @@ import {
   ListItemAvatar,
   ListItemText
 } from '@material-ui/core';
+import colors from '../assets/colors'
 
 function CardSecurities() {
   return (
@@ -18,19 +19,19 @@ function CardSecurities() {
         <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar>1</Avatar>
+              <Avatar style={{backgroundColor: colors.red}}>1</Avatar>
             </ListItemAvatar>
             <ListItemText primary="Vencidos" secondary="R$ 3.105,00" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar>2</Avatar>
+              <Avatar style={{backgroundColor: colors.orange}}>2</Avatar>
             </ListItemAvatar>
             <ListItemText primary="A vencer" secondary="R$ 3.105,00" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar>2</Avatar>
+              <Avatar style={{backgroundColor: colors.green}}>2</Avatar>
             </ListItemAvatar>
             <ListItemText primary="Pagos" secondary="R$ 3.105,00" />
           </ListItem>

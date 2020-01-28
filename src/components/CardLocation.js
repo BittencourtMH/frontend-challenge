@@ -5,7 +5,7 @@ import {
   CardHeader,
   List,
   ListItem,
-  ListItemAvatar,
+  ListItemIcon,
   ListItemText
 } from '@material-ui/core';
 import {LocationOn} from '@material-ui/icons'
@@ -17,9 +17,9 @@ function CardLocation() {
       <CardContent>
         <List>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemIcon>
               <LocationOn />
-            </ListItemAvatar>
+            </ListItemIcon>
             <ListItemText primary="Avenida Brasil, 4019" secondary="Trabalho" />
           </ListItem>
         </List>

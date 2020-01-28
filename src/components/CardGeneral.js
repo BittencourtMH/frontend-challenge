@@ -4,6 +4,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  CardHeader,
   Chip,
   IconButton,
   List,
@@ -17,10 +18,8 @@ import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@ma
 function CardGeneral() {
   return (
     <Card>
+      <CardHeader title="Informações gerais" />
       <CardContent>
-        <Typography variant="h6">
-          Informações gerais
-        </Typography>
         <List>
           <ListItem>
             <ListItemAvatar>

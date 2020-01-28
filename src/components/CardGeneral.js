@@ -46,7 +46,7 @@ function CardGeneral() {
             <ListItemAvatar>
               <Phone />
             </ListItemAvatar>
-            <ListItemText primary="45 9 9555 5555" secondary="Celular" />
+            <ListItemText primary="(45) 99555-5555" secondary="Celular" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>

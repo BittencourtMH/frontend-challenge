@@ -18,6 +18,7 @@ import {
 } from '@material-ui/core';
 import {Event, Group, Mail, Phone, Search} from '@material-ui/icons';
 import colors from '../assets/colors';
+import data from '../assets/data'
 
 function CardActivities() {
   return (
@@ -86,10 +87,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Ligação de agendamento da reunião"
                     secondary={
-                      <div>
+                      <span>
                         Erica Collins<br />
                         Em atraso por 04 dias
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -113,10 +114,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Reunião orçamento"
                     secondary={
-                      <div>
+                      <span>
                         Abigail Fisher<br />
                         Hoje às 15h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -127,10 +128,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Email documentação"
                     secondary={
-                      <div>
+                      <span>
                         Jeffery King<br />
                         Amanhã às 09h45
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -141,10 +142,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Almoço corporativo"
                     secondary={
-                      <div>
+                      <span>
                         Lawrence Kelly<br />
                         Amanhã às 15h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -168,10 +169,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Apresentação feira agrícola"
                     secondary={
-                      <div>
+                      <span>
                         Caroline Diaz<br />
                         Segunda-feira (17/09/2018) às 08h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -182,10 +183,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Email orçamento"
                     secondary={
-                      <div>
+                      <span>
                         Arthur Clark<br />
                         Terça-feira (18/09/2018) às 13h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -196,10 +197,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Email contrato"
                     secondary={
-                      <div>
+                      <span>
                         Frieda Howard<br />
                         Quarta-feira (19/09/2018) às 10h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>
@@ -210,10 +211,10 @@ function CardActivities() {
                   <ListItemText
                     primary="Ligação contrato"
                     secondary={
-                      <div>
+                      <span>
                         Dylan Watsor<br />
                         Quarta-feira (19/09/2018) às 13h
-                      </div>
+                      </span>
                     }
                   />
                 </ListItem>

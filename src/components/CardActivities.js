@@ -16,7 +16,7 @@ import {
   Stepper,
   TextField
 } from '@material-ui/core';
-import {Group, Mail, Phone, Search} from '@material-ui/icons';
+import {Event, Group, Mail, Phone, Search} from '@material-ui/icons';
 import colors from '../assets/colors';
 
 function CardActivities() {
@@ -68,7 +68,7 @@ function CardActivities() {
             <ListItemText primary="Concluídas" />
           </ListItem>
         </List>
-        <Stepper orientation="vertical" activeStep={3}>
+        <Stepper orientation="vertical" activeStep={4}>
           <Step expanded>
             <StepLabel
               icon={
@@ -77,7 +77,7 @@ function CardActivities() {
             >
               Atividades em atraso
             </StepLabel>
-            <StepContent>
+            <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
               <List>
                 <ListItem>
                   <ListItemIcon style={{color: colors.red}}>
@@ -104,7 +104,7 @@ function CardActivities() {
             >
               Atividades previstas
             </StepLabel>
-            <StepContent>
+            <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
               <List>
                 <ListItem>
                   <ListItemIcon style={{color: colors.yellow}}>
@@ -134,6 +134,20 @@ function CardActivities() {
                     }
                   />
                 </ListItem>
+                <ListItem>
+                  <ListItemIcon style={{color: colors.yellow}}>
+                    <Event />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Almoço corporativo"
+                    secondary={
+                      <div>
+                        Lawrence Kelly<br />
+                        Amanhã às 15h
+                      </div>
+                    }
+                  />
+                </ListItem>
               </List>
             </StepContent>
           </Step>
@@ -145,7 +159,66 @@ function CardActivities() {
             >
               Atividades concluídas
             </StepLabel>
-            <StepContent>Apresentação feira agrícola</StepContent>
+            <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
+              <List>
+                <ListItem>
+                  <ListItemIcon style={{color: colors.green}}>
+                    <Event />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Apresentação feira agrícola"
+                    secondary={
+                      <div>
+                        Caroline Diaz<br />
+                        Segunda-feira (17/09/2018) às 08h
+                      </div>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon style={{color: colors.green}}>
+                    <Mail />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Email orçamento"
+                    secondary={
+                      <div>
+                        Arthur Clark<br />
+                        Terça-feira (18/09/2018) às 13h
+                      </div>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon style={{color: colors.green}}>
+                    <Mail />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Email contrato"
+                    secondary={
+                      <div>
+                        Frieda Howard<br />
+                        Quarta-feira (19/09/2018) às 10h
+                      </div>
+                    }
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon style={{color: colors.green}}>
+                    <Phone />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Ligação contrato"
+                    secondary={
+                      <div>
+                        Dylan Watsor<br />
+                        Quarta-feira (19/09/2018) às 13h
+                      </div>
+                    }
+                  />
+                </ListItem>
+              </List>
+            </StepContent>
           </Step>
         </Stepper>
       </CardContent>

@@ -14,7 +14,8 @@ import {
   ListItemText,
   Typography
 } from '@material-ui/core';
-import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@material-ui/icons'
+import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@material-ui/icons';
+import formatPhone from '../utils/formatPhone';
 
 function CardGeneral(props) {
   const {data} = props;
@@ -48,7 +49,7 @@ function CardGeneral(props) {
                 <ListItemIcon>
                   <Phone />
                 </ListItemIcon>
-                <ListItemText primary={phone.number} secondary={phone.description} />
+                <ListItemText primary={formatPhone(phone.number)} secondary={phone.description} />
               </ListItem>
             ))
           }

@@ -10,7 +10,7 @@ import {
   ListItemText
 } from '@material-ui/core';
 import colors from '../assets/colors';
-import {formatValueWithAmount} from '../utils/formatValue';
+import {formatCurrencyWithAmount} from '../utils/formatCurrency';
 
 function CardSecurities(props) {
   const {securities} = props;
@@ -28,7 +28,7 @@ function CardSecurities(props) {
             </ListItemAvatar>
             <ListItemText
               primary="Vencidos"
-              secondary={formatValueWithAmount(securities.overdue)}
+              secondary={formatCurrencyWithAmount(securities.overdue)}
             />
           </ListItem>
           <ListItem>
@@ -39,7 +39,7 @@ function CardSecurities(props) {
             </ListItemAvatar>
             <ListItemText
               primary="A vencer"
-              secondary={formatValueWithAmount(securities.due)}
+              secondary={formatCurrencyWithAmount(securities.due)}
             />
           </ListItem>
           <ListItem>
@@ -50,7 +50,7 @@ function CardSecurities(props) {
             </ListItemAvatar>
             <ListItemText
               primary="Pagos"
-              secondary={formatValueWithAmount(securities.paid)}
+              secondary={formatCurrencyWithAmount(securities.paid)}
             />
           </ListItem>
         </List>

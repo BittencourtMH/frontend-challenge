@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 import {Info} from '@material-ui/icons';
 import colors from '../assets/colors';
-import {formatValueWithAmount} from '../utils/formatValue'
+import {formatCurrencyWithAmount} from '../utils/formatCurrency'
 
 function CardOpportunities(props) {
   const {opportunities} = props;
@@ -43,7 +43,7 @@ function CardOpportunities(props) {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Ganhas"
-                  secondary={formatValueWithAmount(opportunities.won)}
+                  secondary={formatCurrencyWithAmount(opportunities.won)}
                 />
               </ListItem>
             </Grid>
@@ -56,7 +56,7 @@ function CardOpportunities(props) {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Perdida"
-                  secondary={formatValueWithAmount(opportunities.lost)}
+                  secondary={formatCurrencyWithAmount(opportunities.lost)}
                 />
               </ListItem>
             </Grid>
@@ -69,7 +69,7 @@ function CardOpportunities(props) {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Abertas"
-                  secondary={formatValueWithAmount(opportunities.open)}
+                  secondary={formatCurrencyWithAmount(opportunities.open)}
                 />
               </ListItem>
             </Grid>
@@ -82,7 +82,7 @@ function CardOpportunities(props) {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Descartadas"
-                  secondary={formatValueWithAmount(opportunities.discarded)}
+                  secondary={formatCurrencyWithAmount(opportunities.discarded)}
                 />
               </ListItem>
             </Grid>

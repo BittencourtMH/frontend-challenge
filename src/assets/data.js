@@ -36,12 +36,12 @@ const data = {
   opportunities: {
     won: {
       amount: 4,
-      currency: 'R$',
+      currency: 'BRL',
       value: 20000
     },
     lost: {
       amount: 1,
-      currency: 'R$',
+      currency: 'BRL',
       value: 4300
     },
     open: {
@@ -57,28 +57,28 @@ const data = {
   },
   credits: {
     given: {
-      currency: 'R$',
+      currency: 'BRL',
       value: 12000.20
     },
     available: {
-      currency: 'R$',
+      currency: 'BRL',
       value: 3105
     }
   },
   securities: {
     overdue: {
       amount: 1,
-      currency: 'R$',
+      currency: 'BRL',
       value: 3105
     },
     due: {
       amount: 2,
-      currency: 'R$',
+      currency: 'BRL',
       value: 3105
     },
     paid: {
       amount: 2,
-      currency: 'R$',
+      currency: 'BRL',
       value: 3105
     }
   },

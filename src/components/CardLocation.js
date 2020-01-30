@@ -10,18 +10,23 @@ import {
 } from '@material-ui/core';
 import {LocationOn} from '@material-ui/icons'
 
-function CardLocation() {
+function CardLocation(props) {
+  const {places} = props;
   return (
     <Card>
       <CardHeader title="Local" />
       <CardContent>
         <List>
-          <ListItem>
-            <ListItemIcon>
-              <LocationOn />
-            </ListItemIcon>
-            <ListItemText primary="Avenida Brasil, 4019" secondary="Trabalho" />
-          </ListItem>
+          {
+            places.map(place => (
+              <ListItem key={place.id}>
+                <ListItemIcon>
+                  <LocationOn />
+                </ListItemIcon>
+                <ListItemText primary={place.address} secondary={place.description} />
+              </ListItem>
+            ))
+          }
         </List>
       </CardContent>
     </Card>

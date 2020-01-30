@@ -18,9 +18,23 @@ import {
 } from '@material-ui/core';
 import {Event, Group, Mail, Phone, Search} from '@material-ui/icons';
 import colors from '../assets/colors';
-import data from '../assets/data'
+import differenceDays from '../utils/differenceDays';
+import {formatDate, formatTime} from '../utils/formatDate';
 
-function CardActivities() {
+function CardActivities(props) {
+  const {activities} = props;
+  const amount = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
+  const now = new Date();
+
+  function typeIcon(type) {
+    switch (type) {
+      case 1: return <Phone />;
+      case 2: return <Group />;
+      case 3: return <Mail />;
+      case 4: default: return <Event />;
+    }
+  }
+
   return (
     <Card>
       <CardHeader title="Atividades" />
@@ -40,31 +54,41 @@ function CardActivities() {
         <List style={{display: 'flex'}}>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>25</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>
+                {amount}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Total" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.red}}>1</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.red}}>
+                {activities.delayed.length}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Em atraso" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>0</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>
+                {activities.doing.length}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Em andamento" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.yellow}}>3</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.yellow}}>
+                {activities.toDo.length}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Previstas" />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.green}}>21</Avatar>
+              <Avatar variant="rounded" style={{backgroundColor: colors.green}}>
+                {activities.done.length}
+              </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Concluídas" />
           </ListItem>
@@ -80,20 +104,24 @@ function CardActivities() {
             </StepLabel>
             <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
               <List>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.red}}>
-                    <Phone />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Ligação de agendamento da reunião"
-                    secondary={
-                      <span>
-                        Erica Collins<br />
-                        Em atraso por 04 dias
-                      </span>
-                    }
-                  />
-                </ListItem>
+                {
+                  activities.delayed.map(activity => (
+                    <ListItem key={activity.id}>
+                      <ListItemIcon style={{color: colors.red}}>
+                        {typeIcon(activity.type)}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={activity.description}
+                        secondary={
+                          <span>
+                            {activity.person}<br />
+                            Em atraso por {differenceDays(activity.date, now)} dias
+                          </span>
+                        }
+                      />
+                    </ListItem>
+                  ))
+                }
               </List>
             </StepContent>
           </Step>
@@ -107,48 +135,24 @@ function CardActivities() {
             </StepLabel>
             <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
               <List>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.yellow}}>
-                    <Group />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Reunião orçamento"
-                    secondary={
-                      <span>
-                        Abigail Fisher<br />
-                        Hoje às 15h
-                      </span>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.yellow}}>
-                    <Mail />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Email documentação"
-                    secondary={
-                      <span>
-                        Jeffery King<br />
-                        Amanhã às 09h45
-                      </span>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.yellow}}>
-                    <Event />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Almoço corporativo"
-                    secondary={
-                      <span>
-                        Lawrence Kelly<br />
-                        Amanhã às 15h
-                      </span>
-                    }
-                  />
-                </ListItem>
+                {
+                  activities.toDo.map(activity => (
+                    <ListItem key={activity.id}>
+                      <ListItemIcon style={{color: colors.yellow}}>
+                        {typeIcon(activity.type)}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={activity.description}
+                        secondary={
+                          <span>
+                            {activity.person}<br />
+                            {formatDate(activity.date, now)} às {formatTime(activity.date)}
+                          </span>
+                        }
+                      />
+                    </ListItem>
+                  ))
+                }
               </List>
             </StepContent>
           </Step>
@@ -162,62 +166,24 @@ function CardActivities() {
             </StepLabel>
             <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
               <List>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.green}}>
-                    <Event />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Apresentação feira agrícola"
-                    secondary={
-                      <span>
-                        Caroline Diaz<br />
-                        Segunda-feira (17/09/2018) às 08h
-                      </span>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.green}}>
-                    <Mail />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Email orçamento"
-                    secondary={
-                      <span>
-                        Arthur Clark<br />
-                        Terça-feira (18/09/2018) às 13h
-                      </span>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.green}}>
-                    <Mail />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Email contrato"
-                    secondary={
-                      <span>
-                        Frieda Howard<br />
-                        Quarta-feira (19/09/2018) às 10h
-                      </span>
-                    }
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon style={{color: colors.green}}>
-                    <Phone />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary="Ligação contrato"
-                    secondary={
-                      <span>
-                        Dylan Watsor<br />
-                        Quarta-feira (19/09/2018) às 13h
-                      </span>
-                    }
-                  />
-                </ListItem>
+                {
+                  activities.done.map(activity => (
+                    <ListItem key={activity.id}>
+                      <ListItemIcon style={{color: colors.green}}>
+                        {typeIcon(activity.type)}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={activity.description}
+                        secondary={
+                          <span>
+                            {activity.person}<br />
+                            {formatDate(activity.date, now)} às {formatTime(activity.date)}
+                          </span>
+                        }
+                      />
+                    </ListItem>
+                  ))
+                }
               </List>
             </StepContent>
           </Step>

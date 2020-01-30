@@ -15,12 +15,16 @@ import {
 } from '@material-ui/core';
 import {Info} from '@material-ui/icons';
 import colors from '../assets/colors';
+import {formatValueWithAmount} from '../utils/formatValue'
 
-function CardOpportunities() {
+function CardOpportunities(props) {
+  const {opportunities} = props;
+  const amount = Object.keys(opportunities)
+    .reduce((sum, key) => sum + opportunities[key].amount, 0);
   return (
     <Card>
       <CardHeader
-        title="Oportunidades (7)"
+        title={`Oportunidades (${amount})`}
         action={
           <IconButton>
             <Info />
@@ -33,33 +37,53 @@ function CardOpportunities() {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.green}}>4</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.green}}>
+                    {opportunities.won.amount}
+                  </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Ganhas" secondary="R$ 20.000,00" />
+                <ListItemText
+                  primary="Ganhas"
+                  secondary={formatValueWithAmount(opportunities.won)}
+                />
               </ListItem>
             </Grid>
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.red}}>1</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.red}}>
+                    {opportunities.lost.amount}
+                  </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Perdida" secondary="R$ 4.300,00" />
+                <ListItemText
+                  primary="Perdida"
+                  secondary={formatValueWithAmount(opportunities.lost)}
+                />
               </ListItem>
             </Grid>
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>2</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>
+                    {opportunities.open.amount}
+                  </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Abertas" secondary="Diversas moedas" />
+                <ListItemText
+                  primary="Abertas"
+                  secondary={formatValueWithAmount(opportunities.open)}
+                />
               </ListItem>
             </Grid>
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>0</Avatar>
+                  <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>
+                    {opportunities.discarded.amount}
+                  </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Descartadas" secondary="-" />
+                <ListItemText
+                  primary="Descartadas"
+                  secondary={formatValueWithAmount(opportunities.discarded)}
+                />
               </ListItem>
             </Grid>
           </Grid>

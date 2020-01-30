@@ -16,7 +16,8 @@ import {
 } from '@material-ui/core';
 import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@material-ui/icons'
 
-function CardGeneral() {
+function CardGeneral(props) {
+  const {data} = props;
   return (
     <Card>
       <CardHeader title="Informações gerais" />
@@ -27,13 +28,13 @@ function CardGeneral() {
               <Avatar style={{marginRight: 16, width: '4em', height: '4em'}} />
             </ListItemAvatar>
             <ListItemText
-              primary="Justine Robinson"
+              primary={data.name}
               secondary={
                 <React.Fragment>
                   <Typography>
-                    Acme inc
+                    {data.company}
                   </Typography>
-                  <Chip label="Ativo" color="primary" />
+                  <Chip label={data.active ? 'Ativo' : 'Inativo'} color="primary" />
                 </React.Fragment>
               }
               secondaryTypographyProps={{component: 'div'}}
@@ -41,18 +42,26 @@ function CardGeneral() {
           </ListItem>
         </List>
         <List>
-          <ListItem>
-            <ListItemIcon>
-              <Phone />
-            </ListItemIcon>
-            <ListItemText primary="(45) 99555-5555" secondary="Celular" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <Mail />
-            </ListItemIcon>
-            <ListItemText primary="justine@email.com" secondary="Trabalho" />
-          </ListItem>
+          {
+            data.phones.map(phone => (
+              <ListItem key={phone.id}>
+                <ListItemIcon>
+                  <Phone />
+                </ListItemIcon>
+                <ListItemText primary={phone.number} secondary={phone.description} />
+              </ListItem>
+            ))
+          }
+          {
+            data.emails.map(email => (
+              <ListItem key={email.id}>
+                <ListItemIcon>
+                  <Mail />
+                </ListItemIcon>
+                <ListItemText primary={email.address} secondary={email.description} />
+              </ListItem>
+            ))
+          }
         </List>
       </CardContent>
       <CardActions style={{float: 'right'}}>

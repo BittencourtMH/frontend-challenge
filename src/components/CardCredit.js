@@ -1,8 +1,10 @@
 import React from 'react';
 import {Card, CardContent, CardHeader, List, ListItem, ListItemText} from '@material-ui/core';
 import colors from '../assets/colors';
+import {formatValue} from '../utils/formatValue';
 
-function CardCredit() {
+function CardCredit(props) {
+  const {credits} = props;
   return (
     <Card>
       <CardHeader title="Limite de crédito" />
@@ -10,14 +12,14 @@ function CardCredit() {
         <List>
           <ListItem>
             <ListItemText
-              primary="R$ 12.000,20"
+              primary={formatValue(credits.given)}
               secondary="Concedido"
               primaryTypographyProps={{style: {color: colors.blue}}}
             />
           </ListItem>
           <ListItem>
             <ListItemText
-              primary="R$ 3.105,00"
+              primary={formatValue(credits.available)}
               secondary="Disponível"
               primaryTypographyProps={{style: {color: colors.green}}}
             />

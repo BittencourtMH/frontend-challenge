@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Avatar,
   Card,
@@ -19,6 +19,23 @@ import colors from '../assets/colors';
 function CardActivities(props) {
   const {activities} = props;
   const amount = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
+  const [filteredActivities, setActivities] = useState({...activities});
+
+  function filterActivities(event) {
+    const text = event.target.value.trim().toLowerCase();
+    const filtered = {};
+    Object.keys(activities).forEach(key => {
+      filtered[key] = [];
+      activities[key].forEach(activity => {
+        const {description, person} = activity;
+        if (description.toLowerCase().includes(text) || person.toLowerCase().includes(text)) {
+          filtered[key].push(activity);
+        }
+      });
+    });
+    setActivities(filtered);
+  }
+
   return (
     <Card>
       <CardHeader title="Atividades" />
@@ -27,6 +44,7 @@ function CardActivities(props) {
           fullWidth
           placeholder="Pesquisar..."
           variant="outlined"
+          onChange={filterActivities}
           InputProps={{
             startAdornment: (
               <InputAdornment>
@@ -79,9 +97,9 @@ function CardActivities(props) {
         </List>
         <Stepper orientation="vertical" activeStep={4}>
           {
-            activities.delayed.length > 0 && (
+            filteredActivities.delayed.length > 0 && (
               <ListActivities
-                activities={activities.delayed}
+                activities={filteredActivities.delayed}
                 label="Atividades em atraso"
                 color={colors.red}
                 delayed={true}
@@ -89,9 +107,9 @@ function CardActivities(props) {
             )
           }
           {
-            activities.doing.length > 0 && (
+            filteredActivities.doing.length > 0 && (
               <ListActivities
-                activities={activities.doing}
+                activities={filteredActivities.doing}
                 label="Atividades em andamento"
                 color={colors.blue}
                 delayed={false}
@@ -99,9 +117,9 @@ function CardActivities(props) {
             )
           }
           {
-            activities.toDo.length > 0 && (
+            filteredActivities.toDo.length > 0 && (
               <ListActivities
-                activities={activities.toDo}
+                activities={filteredActivities.toDo}
                 label="Atividades previstas"
                 color={colors.yellow}
                 delayed={false}
@@ -109,9 +127,9 @@ function CardActivities(props) {
             )
           }
           {
-            activities.done.length > 0 && (
+            filteredActivities.done.length > 0 && (
               <ListActivities
-                activities={activities.done}
+                activities={filteredActivities.done}
                 label="Atividades concluídas"
                 color={colors.green}
                 delayed={false}

@@ -13,10 +13,19 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Content from './Content';
+import {
+  AttachMoney,
+  BarChart,
+  DashboardOutlined,
+  DescriptionOutlined,
+  Event,
+  LocalAtm,
+  LocalOffer,
+  MyLocation,
+  PersonOutline,
+  Search
+} from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -137,20 +146,36 @@ function Header() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon><Search /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><PersonOutline /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><Event /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><LocalOffer /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><AttachMoney /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><DescriptionOutlined /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><BarChart /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><LocalAtm /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><MyLocation /></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><DashboardOutlined /></ListItemIcon>
+          </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>

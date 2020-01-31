@@ -1,0 +1,103 @@
+{
+  "cardTitle": {
+    "generalInfo": "Informações gerais",
+    "location": "Local",
+    "opportunities": "Oportunidades",
+    "creditLimit": "Limite de crédito",
+    "sales": "Vendas",
+    "securities": "Títulos financeiros",
+    "activities": "Atividades"
+  },
+  "activeStatus": {
+    "active": "Ativo",
+    "inactive": "Inativo"
+  },
+  "opportunityType": {
+    "won": {
+      "singular": "Ganha",
+      "plural": "Ganhas"
+    },
+    "lost": {
+      "singular": "Perdida",
+      "plural": "Perdidas"
+    },
+    "open": {
+      "singular": "Aberta",
+      "plural": "Abertas"
+    },
+    "discarded": {
+      "singular": "Descartada",
+      "plural": "Descartadas"
+    }
+  },
+  "creditType": {
+    "given": "Concedido",
+    "available": "Disponível"
+  },
+  "securityType": {
+    "overdue": {
+      "singular": "Vencido",
+      "plural": "Vencidos"
+    },
+    "due": {
+      "singular": "A vencer",
+      "plural": "A vencer"
+    },
+    "paid": {
+      "singular": "Pago",
+      "plural": "Pagos"
+    }
+  },
+  "activityStatus": {
+    "total": {
+      "singular": "Total",
+      "plural": "Total"
+    },
+    "delayed": {
+      "singular": "Em atraso",
+      "plural": "Em atraso"
+    },
+    "doing": {
+      "singular": "Em andamento",
+      "plural": "Em andamento"
+    },
+    "toDo": {
+      "singular": "Prevista",
+      "plural": "Previstas"
+    },
+    "done": {
+      "singular": "Concluída",
+      "plural": "Concluídas"
+    }
+  },
+  "fullActivityStatus": {
+    "delayed": {
+      "singular": "Atividade em atraso",
+      "plural": "Atividades em atraso"
+    },
+    "doing": {
+      "singular": "Atividade em andamento",
+      "plural": "Atividades em andamento"
+    },
+    "toDo": {
+      "singular": "Atividade prevista",
+      "plural": "Atividades previstas"
+    },
+    "done": {
+      "singular": "Atividade concluída",
+      "plural": "Atividades concluídas"
+    }
+  },
+  "currency": {
+    "multiple": "Diversas moedas"
+  },
+  "date": {
+    "daysLate": "Em atraso por ${days} dias",
+    "dateAndTime": "${date} às ${time}"
+  },
+  "action": {
+    "viewAllOpportunities": "Ver todas as oportunidades",
+    "addGraphHere": "Adicionar um gráfico aqui",
+    "search": "Pesquisar..."
+  }
+}

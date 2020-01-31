@@ -18,10 +18,10 @@ import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@ma
 import formatPhone from '../utils/formatPhone';
 
 function CardGeneral(props) {
-  const {data} = props;
+  const {data, translation} = props;
   return (
     <Card>
-      <CardHeader title="Informações gerais" />
+      <CardHeader title={translation.cardTitle.generalInfo} />
       <CardContent>
         <List>
           <ListItem>
@@ -35,7 +35,10 @@ function CardGeneral(props) {
                   <Typography>
                     {data.company}
                   </Typography>
-                  <Chip label={data.active ? 'Ativo' : 'Inativo'} color="primary" />
+                  <Chip
+                    label={translation.activeStatus[data.active ? 'active' : 'inactive']}
+                    color="primary"
+                  />
                 </React.Fragment>
               }
               secondaryTypographyProps={{component: 'div'}}

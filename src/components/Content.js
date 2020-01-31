@@ -8,32 +8,32 @@ import CardSales from './CardSales';
 import CardSecurities from './CardSecurities';
 import CardActivities from './CardActivities';
 import data from '../assets/data';
+import translation from '../assets/translations/pt';
 
 function Content() {
-
   return (
     <div>
       <Grid container spacing={1}>
         <Grid item xs={6}>
-          <CardGeneral data={data} />
+          <CardGeneral data={data} translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardLocation places={data.places} />
+          <CardLocation places={data.places} translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardOpportunities opportunities={data.opportunities} />
+          <CardOpportunities opportunities={data.opportunities} translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardCredit credits={data.credits} />
+          <CardCredit credits={data.credits} translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardSales />
+          <CardSales translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardSecurities securities={data.securities} />
+          <CardSecurities securities={data.securities} translation={translation} />
         </Grid>
         <Grid item xs={12}>
-          <CardActivities activities={data.activities} />
+          <CardActivities activities={data.activities} translation={translation} />
         </Grid>
       </Grid>
     </div>

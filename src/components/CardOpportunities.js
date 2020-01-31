@@ -16,15 +16,16 @@ import {
 import {Info} from '@material-ui/icons';
 import colors from '../assets/colors';
 import {formatCurrencyWithAmount} from '../utils/formatCurrency'
+import getLabel from '../utils/getLabel';
 
 function CardOpportunities(props) {
-  const {opportunities} = props;
+  const {opportunities, translation} = props;
   const amount = Object.keys(opportunities)
     .reduce((sum, key) => sum + opportunities[key].amount, 0);
   return (
     <Card>
       <CardHeader
-        title={`Oportunidades (${amount})`}
+        title={`${translation.cardTitle.opportunities} (${amount})`}
         action={
           <IconButton>
             <Info />
@@ -42,8 +43,8 @@ function CardOpportunities(props) {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Ganhas"
-                  secondary={formatCurrencyWithAmount(opportunities.won)}
+                  primary={getLabel(translation.opportunityType.won, opportunities.won.amount)}
+                  secondary={formatCurrencyWithAmount(opportunities.won, translation)}
                 />
               </ListItem>
             </Grid>
@@ -55,8 +56,8 @@ function CardOpportunities(props) {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Perdida"
-                  secondary={formatCurrencyWithAmount(opportunities.lost)}
+                  primary={getLabel(translation.opportunityType.lost, opportunities.lost.amount)}
+                  secondary={formatCurrencyWithAmount(opportunities.lost, translation)}
                 />
               </ListItem>
             </Grid>
@@ -68,8 +69,8 @@ function CardOpportunities(props) {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Abertas"
-                  secondary={formatCurrencyWithAmount(opportunities.open)}
+                  primary={getLabel(translation.opportunityType.open, opportunities.open.amount)}
+                  secondary={formatCurrencyWithAmount(opportunities.open, translation)}
                 />
               </ListItem>
             </Grid>
@@ -81,8 +82,10 @@ function CardOpportunities(props) {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                  primary="Descartadas"
-                  secondary={formatCurrencyWithAmount(opportunities.discarded)}
+                  primary={
+                    getLabel(translation.opportunityType.discarded, opportunities.discarded.amount)
+                  }
+                  secondary={formatCurrencyWithAmount(opportunities.discarded, translation)}
                 />
               </ListItem>
             </Grid>
@@ -90,7 +93,7 @@ function CardOpportunities(props) {
         </List>
       </CardContent>
       <CardActions>
-        <Button>Ver todas oportunidades</Button>
+        <Button>{translation.action.viewAllOpportunities}</Button>
       </CardActions>
     </Card>
   );

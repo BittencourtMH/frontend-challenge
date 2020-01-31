@@ -12,9 +12,10 @@ import {
 import {Event, Group, Mail, Phone} from '@material-ui/icons';
 import differenceDays from '../utils/differenceDays';
 import {formatDate, formatTime} from '../utils/formatDate';
+import replaceVariables from '../utils/replaceVariables';
 
 function ListActivities(props) {
-  const {activities, label, color, delayed, ...stepProps} = props;
+  const {activities, label, color, delayed, translation, ...stepProps} = props;
   const now = new Date();
 
   function typeIcon(type) {
@@ -24,6 +25,14 @@ function ListActivities(props) {
       case 3: return <Mail />;
       case 4: default: return <Event />;
     }
+  }
+
+  function dateText(date) {
+    if (delayed) {
+      return replaceVariables(translation.date.daysLate, {days: differenceDays(date, now)});
+    }
+    const object = {date: formatDate(date, now), time: formatTime(date)};
+    return replaceVariables(translation.date.dateAndTime, object);
   }
 
   return (
@@ -48,11 +57,7 @@ function ListActivities(props) {
                   secondary={
                     <span>
                       {activity.person}<br />
-                      {
-                        delayed
-                          ? `Em atraso por ${differenceDays(activity.date, now)} dias`
-                          : `${formatDate(activity.date, now)} às ${formatTime(activity.date)}`
-                      }
+                      {dateText(activity.date)}
                     </span>
                   }
                 />

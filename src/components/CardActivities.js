@@ -14,11 +14,12 @@ import {
 } from '@material-ui/core';
 import {Search} from '@material-ui/icons';
 import ListActivities from './ListActivities';
+import getLabel from '../utils/getLabel';
 import colors from '../assets/colors';
 
 function CardActivities(props) {
-  const {activities} = props;
-  const amount = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
+  const {activities, translation} = props;
+  const total = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
   const [filteredActivities, setActivities] = useState({...activities});
 
   function filterActivities(event) {
@@ -38,11 +39,11 @@ function CardActivities(props) {
 
   return (
     <Card>
-      <CardHeader title="Atividades" />
+      <CardHeader title={translation.cardTitle.activities} />
       <CardContent>
         <TextField
           fullWidth
-          placeholder="Pesquisar..."
+          placeholder={translation.action.search}
           variant="outlined"
           onChange={filterActivities}
           InputProps={{
@@ -57,10 +58,12 @@ function CardActivities(props) {
           <ListItem>
             <ListItemAvatar>
               <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>
-                {amount}
+                {total}
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Total" />
+            <ListItemText
+              primary={getLabel(translation.activityStatus.total, total)}
+            />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
@@ -68,7 +71,9 @@ function CardActivities(props) {
                 {activities.delayed.length}
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Em atraso" />
+            <ListItemText
+              primary={getLabel(translation.activityStatus.delayed, activities.delayed.length)}
+            />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
@@ -76,7 +81,9 @@ function CardActivities(props) {
                 {activities.doing.length}
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Em andamento" />
+            <ListItemText
+              primary={getLabel(translation.activityStatus.doing, activities.doing.length)}
+            />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
@@ -84,7 +91,9 @@ function CardActivities(props) {
                 {activities.toDo.length}
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Previstas" />
+            <ListItemText
+              primary={getLabel(translation.activityStatus.toDo, activities.toDo.length)}
+            />
           </ListItem>
           <ListItem>
             <ListItemAvatar>
@@ -92,7 +101,9 @@ function CardActivities(props) {
                 {activities.done.length}
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Concluídas" />
+            <ListItemText
+              primary={getLabel(translation.activityStatus.done, activities.done.length)}
+            />
           </ListItem>
         </List>
         <Stepper orientation="vertical" activeStep={4}>
@@ -100,9 +111,14 @@ function CardActivities(props) {
             filteredActivities.delayed.length > 0 && (
               <ListActivities
                 activities={filteredActivities.delayed}
-                label="Atividades em atraso"
+                label={
+                  getLabel(
+                    translation.fullActivityStatus.delayed, filteredActivities.delayed.length
+                  )
+                }
                 color={colors.red}
                 delayed={true}
+                translation={translation}
               />
             )
           }
@@ -110,9 +126,12 @@ function CardActivities(props) {
             filteredActivities.doing.length > 0 && (
               <ListActivities
                 activities={filteredActivities.doing}
-                label="Atividades em andamento"
+                label={
+                  getLabel(translation.fullActivityStatus.doing, filteredActivities.doing.length)
+                }
                 color={colors.blue}
                 delayed={false}
+                translation={translation}
               />
             )
           }
@@ -120,9 +139,12 @@ function CardActivities(props) {
             filteredActivities.toDo.length > 0 && (
               <ListActivities
                 activities={filteredActivities.toDo}
-                label="Atividades previstas"
+                label={
+                  getLabel(translation.fullActivityStatus.toDo, filteredActivities.toDo.length)
+                }
                 color={colors.yellow}
                 delayed={false}
+                translation={translation}
               />
             )
           }
@@ -130,9 +152,12 @@ function CardActivities(props) {
             filteredActivities.done.length > 0 && (
               <ListActivities
                 activities={filteredActivities.done}
-                label="Atividades concluídas"
+                label={
+                  getLabel(translation.fullActivityStatus.done, filteredActivities.done.length)
+                }
                 color={colors.green}
                 delayed={false}
+                translation={translation}
               />
             )
           }

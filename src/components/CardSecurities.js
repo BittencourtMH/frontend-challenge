@@ -11,13 +11,14 @@ import {
 } from '@material-ui/core';
 import colors from '../assets/colors';
 import {formatCurrencyWithAmount} from '../utils/formatCurrency';
+import getLabel from '../utils/getLabel';
 
 function CardSecurities(props) {
-  const {securities} = props;
+  const {securities, translation} = props;
   const amount = Object.keys(securities).reduce((sum, key) => sum + securities[key].amount, 0);
   return (
     <Card>
-      <CardHeader title={`Títulos financeiros (${amount})`} />
+      <CardHeader title={`${translation.cardTitle.securities} (${amount})`} />
       <CardContent>
         <List>
           <ListItem>
@@ -27,8 +28,8 @@ function CardSecurities(props) {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="Vencidos"
-              secondary={formatCurrencyWithAmount(securities.overdue)}
+              primary={getLabel(translation.securityType.overdue, securities.overdue.amount)}
+              secondary={formatCurrencyWithAmount(securities.overdue, translation)}
             />
           </ListItem>
           <ListItem>
@@ -38,8 +39,8 @@ function CardSecurities(props) {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="A vencer"
-              secondary={formatCurrencyWithAmount(securities.due)}
+              primary={getLabel(translation.securityType.due, securities.due.amount)}
+              secondary={formatCurrencyWithAmount(securities.due, translation)}
             />
           </ListItem>
           <ListItem>
@@ -49,8 +50,8 @@ function CardSecurities(props) {
               </Avatar>
             </ListItemAvatar>
             <ListItemText
-              primary="Pagos"
-              secondary={formatCurrencyWithAmount(securities.paid)}
+              primary={getLabel(translation.securityType.paid, securities.paid.amount)}
+              secondary={formatCurrencyWithAmount(securities.paid, translation)}
             />
           </ListItem>
         </List>

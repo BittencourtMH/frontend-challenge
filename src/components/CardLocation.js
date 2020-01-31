@@ -11,10 +11,10 @@ import {
 import {LocationOn} from '@material-ui/icons'
 
 function CardLocation(props) {
-  const {places} = props;
+  const {places, translation} = props;
   return (
     <Card>
-      <CardHeader title="Local" />
+      <CardHeader title={translation.cardTitle.location} />
       <CardContent>
         <List>
           {

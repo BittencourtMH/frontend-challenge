@@ -18,7 +18,7 @@ function Content() {
           <CardGeneral data={data} translation={translation} />
         </Grid>
         <Grid item xs={6}>
-          <CardLocation places={data.places} translation={translation} />
+          <CardLocation address={data.address} translation={translation} />
         </Grid>
         <Grid item xs={6}>
           <CardOpportunities opportunities={data.opportunities} translation={translation} />

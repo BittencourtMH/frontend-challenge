@@ -45,7 +45,7 @@ function ListActivities(props) {
         {label}
       </StepLabel>
       <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
-        <List>
+        <List dense>
           {
             activities.map(activity => (
               <ListItem key={activity.id}>

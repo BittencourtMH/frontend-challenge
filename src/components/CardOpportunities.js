@@ -33,7 +33,7 @@ function CardOpportunities(props) {
         }
       />
       <CardContent>
-        <List>
+        <List dense>
           <Grid container>
             <Grid item xs={6}>
               <ListItem>

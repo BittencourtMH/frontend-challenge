@@ -54,7 +54,7 @@ function CardActivities(props) {
             )
           }}
         />
-        <List style={{display: 'flex'}}>
+        <List dense style={{display: 'flex'}}>
           <ListItem>
             <ListItemAvatar>
               <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>

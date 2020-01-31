@@ -9,7 +9,7 @@ function CardCredit(props) {
     <Card>
       <CardHeader title={translation.cardTitle.creditLimit} />
       <CardContent>
-        <List>
+        <List dense>
           <ListItem>
             <ListItemText
               primary={formatCurrency(credits.given, translation)}

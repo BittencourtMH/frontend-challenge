@@ -20,7 +20,7 @@ function CardSecurities(props) {
     <Card>
       <CardHeader title={`${translation.cardTitle.securities} (${amount})`} />
       <CardContent>
-        <List>
+        <List dense>
           <ListItem>
             <ListItemAvatar>
               <Avatar variant="rounded" style={{backgroundColor: colors.red}}>

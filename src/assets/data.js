@@ -19,20 +19,19 @@ const data = {
       description: 'Trabalho'
     }
   ],
-  whatsapp: '45995555555',
+  whatsApp: '45995555555',
   facebook: '',
   instagram: 'justinerobinson',
   twitter: '',
-  linkedin: '',
-  places: [
-    {
-      id: 1,
-      address: 'Avenida Brasil, 4019',
-      latitude: '',
-      longitude: '',
-      description: 'Trabalho'
-    }
-  ],
+  linkedIn: '',
+  address: {
+    street: 'Avenida Brasil, 4019',
+    neighborhood: 'Pacaembu',
+    postalCode: '85816302',
+    city: 'Cascavel',
+    state: 'PR',
+    description: 'Trabalho'
+  },
   opportunities: {
     won: {
       amount: 4,

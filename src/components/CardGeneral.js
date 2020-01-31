@@ -26,7 +26,10 @@ function CardGeneral(props) {
         <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar style={{marginRight: 16, width: '4em', height: '4em'}} />
+              <Avatar
+                src={data.photo}
+                style={{marginRight: 16, width: '4em', height: '4em'}}
+              />
             </ListItemAvatar>
             <ListItemText
               primary={data.name}
@@ -37,7 +40,7 @@ function CardGeneral(props) {
                   </Typography>
                   <Chip
                     label={translation.activeStatus[data.active ? 'active' : 'inactive']}
-                    color="primary"
+                    color={data.active ? 'primary' : 'secondary'}
                   />
                 </React.Fragment>
               }
@@ -45,7 +48,7 @@ function CardGeneral(props) {
             />
           </ListItem>
         </List>
-        <List>
+        <List dense>
           {
             data.phones.map(phone => (
               <ListItem key={phone.id}>
@@ -69,19 +72,39 @@ function CardGeneral(props) {
         </List>
       </CardContent>
       <CardActions style={{float: 'right'}}>
-        <IconButton>
+        <IconButton
+          href={`https://wa.me/55${data.whatsApp}`}
+          target="_blank"
+          disabled={data.whatsApp === ''}
+        >
           <WhatsApp />
         </IconButton>
-        <IconButton disabled>
+        <IconButton
+          href={`https://fb.me/55${data.facebook}`}
+          target="_blank"
+          disabled={data.facebook === ''}
+        >
           <Facebook />
         </IconButton>
-        <IconButton>
+        <IconButton
+          href={`https://instagram.com/${data.instagram}`}
+          target="_blank"
+          disabled={data.instagram === ''}
+        >
           <Instagram />
         </IconButton>
-        <IconButton disabled>
+        <IconButton
+          href={`https://twitter.com/${data.twitter}`}
+          target="_blank"
+          disabled={data.twitter === ''}
+        >
           <Twitter />
         </IconButton>
-        <IconButton disabled>
+        <IconButton
+          href={`https://linkedin.com/in/${data.linkedIn}`}
+          target="_blank"
+          disabled={data.linkedIn === ''}
+        >
           <LinkedIn />
         </IconButton>
       </CardActions>

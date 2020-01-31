@@ -11,22 +11,27 @@ import {
 import {LocationOn} from '@material-ui/icons'
 
 function CardLocation(props) {
-  const {places, translation} = props;
+  const {address, translation} = props;
+  const url =
+    'https://google.com/maps/embed/v1/place?key=AIzaSyDjhkEQg0w_qaaIRCoALluSs9rZKRyk6pg&q=';
+  const {street, neighborhood, postalCode, city, state} = address;
   return (
     <Card>
       <CardHeader title={translation.cardTitle.location} />
       <CardContent>
-        <List>
-          {
-            places.map(place => (
-              <ListItem key={place.id}>
-                <ListItemIcon>
-                  <LocationOn />
-                </ListItemIcon>
-                <ListItemText primary={place.address} secondary={place.description} />
-              </ListItem>
-            ))
-          }
+        <iframe
+          title="Google Maps"
+          src={`${url}${street} ${neighborhood} ${postalCode} ${city} ${state}`}
+          style={{width: '100%', height: 200, border: 0}}
+        >
+        </iframe>
+        <List dense>
+          <ListItem>
+            <ListItemIcon>
+              <LocationOn />
+            </ListItemIcon>
+            <ListItemText primary={street} secondary={address.description} />
+          </ListItem>
         </List>
       </CardContent>
     </Card>

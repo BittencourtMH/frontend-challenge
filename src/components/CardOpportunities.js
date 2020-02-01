@@ -11,17 +11,34 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  ListItemText
+  ListItemText,
+  makeStyles
 } from '@material-ui/core';
 import {Info} from '@material-ui/icons';
-import colors from '../assets/colors';
 import {formatCurrencyWithAmount} from '../utils/formatCurrency'
 import getLabel from '../utils/getLabel';
+import colors from '../assets/colors';
+
+const useStyles = makeStyles({
+  won: {
+    backgroundColor: colors.green
+  },
+  lost: {
+    backgroundColor: colors.red
+  },
+  open: {
+    backgroundColor: colors.blue
+  },
+  discarded: {
+    backgroundColor: colors.gray
+  }
+});
 
 function CardOpportunities(props) {
   const {opportunities, translation} = props;
   const amount = Object.keys(opportunities)
     .reduce((sum, key) => sum + opportunities[key].amount, 0);
+  const classes = useStyles();
   return (
     <Card>
       <CardHeader
@@ -38,7 +55,7 @@ function CardOpportunities(props) {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.green}}>
+                  <Avatar variant="rounded" className={classes.won}>
                     {opportunities.won.amount}
                   </Avatar>
                 </ListItemAvatar>
@@ -51,7 +68,7 @@ function CardOpportunities(props) {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.red}}>
+                  <Avatar variant="rounded" className={classes.lost}>
                     {opportunities.lost.amount}
                   </Avatar>
                 </ListItemAvatar>
@@ -64,7 +81,7 @@ function CardOpportunities(props) {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>
+                  <Avatar variant="rounded" className={classes.open}>
                     {opportunities.open.amount}
                   </Avatar>
                 </ListItemAvatar>
@@ -77,7 +94,7 @@ function CardOpportunities(props) {
             <Grid item xs={6}>
               <ListItem>
                 <ListItemAvatar>
-                  <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>
+                  <Avatar variant="rounded" className={classes.discarded}>
                     {opportunities.discarded.amount}
                   </Avatar>
                 </ListItemAvatar>

@@ -1,5 +1,4 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import {
   AppBar,
   Divider,
@@ -8,7 +7,8 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  Toolbar
+  Toolbar,
+  makeStyles
 } from '@material-ui/core';
 import {
   AttachMoney,
@@ -40,9 +40,6 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: {
     ...theme.mixins.toolbar
-  },
-  content: {
-    padding: theme.spacing(3)
   }
 }));
 
@@ -127,7 +124,7 @@ function Page() {
           </ListItem>
         </List>
       </Drawer>
-      <main className={classes.content}>
+      <main>
         <div className={classes.toolbar} />
         <Content />
       </main>

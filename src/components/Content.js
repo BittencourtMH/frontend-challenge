@@ -12,26 +12,28 @@ import data from '../assets/data';
 
 function Content() {
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={6}>
-        <CardGeneral data={data} translation={translation} />
+    <Grid container spacing={2}>
+      <Grid item xs={12} lg={4} xl={6} container spacing={2}>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardGeneral data={data} translation={translation} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardLocation address={data.address} translation={translation} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardOpportunities opportunities={data.opportunities} translation={translation} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardCredit credits={data.credits} translation={translation} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardSales translation={translation} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={12} xl={6}>
+          <CardSecurities securities={data.securities} translation={translation} />
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <CardLocation address={data.address} translation={translation} />
-      </Grid>
-      <Grid item xs={6}>
-        <CardOpportunities opportunities={data.opportunities} translation={translation} />
-      </Grid>
-      <Grid item xs={6}>
-        <CardCredit credits={data.credits} translation={translation} />
-      </Grid>
-      <Grid item xs={6}>
-        <CardSales translation={translation} />
-      </Grid>
-      <Grid item xs={6}>
-        <CardSecurities securities={data.securities} translation={translation} />
-      </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} lg={8} xl={6}>
         <CardActivities activities={data.activities} translation={translation} />
       </Grid>
     </Grid>

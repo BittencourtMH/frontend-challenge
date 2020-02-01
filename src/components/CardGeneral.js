@@ -23,8 +23,11 @@ const useStyles = makeStyles({
     marginRight: 16,
     width: '4em',
     height: '4em'
+  },
+  cardActions: {
+    float: 'right'
   }
-})
+});
 
 function CardGeneral(props) {
   const {data, translation} = props;
@@ -78,7 +81,7 @@ function CardGeneral(props) {
           }
         </List>
       </CardContent>
-      <CardActions style={{float: 'right'}}>
+      <CardActions className={classes.cardActions}>
         <IconButton
           href={`https://wa.me/55${data.whatsApp}`}
           target="_blank"

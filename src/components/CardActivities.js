@@ -10,17 +10,40 @@ import {
   ListItemAvatar,
   ListItemText,
   Stepper,
-  TextField
+  TextField,
+  makeStyles
 } from '@material-ui/core';
 import {Search} from '@material-ui/icons';
 import ListActivities from './ListActivities';
 import getLabel from '../utils/getLabel';
 import colors from '../assets/colors';
 
+const useStyles = makeStyles({
+  list: {
+    display: 'flex'
+  },
+  total: {
+    backgroundColor: colors.gray
+  },
+  delayed: {
+    backgroundColor: colors.red
+  },
+  doing: {
+    backgroundColor: colors.blue
+  },
+  toDo: {
+    backgroundColor: colors.yellow
+  },
+  done: {
+    backgroundColor: colors.green
+  }
+});
+
 function CardActivities(props) {
   const {activities, translation} = props;
   const total = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
   const [filteredActivities, setActivities] = useState({...activities});
+  const classes = useStyles();
 
   function filterActivities(event) {
     const text = event.target.value.trim().toLowerCase();
@@ -54,10 +77,10 @@ function CardActivities(props) {
             )
           }}
         />
-        <List dense style={{display: 'flex'}}>
+        <List dense className={classes.list}>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.gray}}>
+              <Avatar variant="rounded" className={classes.total}>
                 {total}
               </Avatar>
             </ListItemAvatar>
@@ -67,7 +90,7 @@ function CardActivities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.red}}>
+              <Avatar variant="rounded" className={classes.delayed}>
                 {activities.delayed.length}
               </Avatar>
             </ListItemAvatar>
@@ -77,7 +100,7 @@ function CardActivities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.blue}}>
+              <Avatar variant="rounded" className={classes.doing}>
                 {activities.doing.length}
               </Avatar>
             </ListItemAvatar>
@@ -87,7 +110,7 @@ function CardActivities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.yellow}}>
+              <Avatar variant="rounded" className={classes.toDo}>
                 {activities.toDo.length}
               </Avatar>
             </ListItemAvatar>
@@ -97,7 +120,7 @@ function CardActivities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.green}}>
+              <Avatar variant="rounded" className={classes.done}>
                 {activities.done.length}
               </Avatar>
             </ListItemAvatar>

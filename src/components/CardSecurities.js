@@ -7,15 +7,29 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  ListItemText
+  ListItemText,
+  makeStyles
 } from '@material-ui/core';
-import colors from '../assets/colors';
 import {formatCurrencyWithAmount} from '../utils/formatCurrency';
 import getLabel from '../utils/getLabel';
+import colors from '../assets/colors';
+
+const useStyles = makeStyles({
+  overdue: {
+    backgroundColor: colors.red
+  },
+  due: {
+    backgroundColor: colors.orange
+  },
+  paid: {
+    backgroundColor: colors.green
+  }
+});
 
 function CardSecurities(props) {
   const {securities, translation} = props;
   const amount = Object.keys(securities).reduce((sum, key) => sum + securities[key].amount, 0);
+  const classes = useStyles();
   return (
     <Card>
       <CardHeader title={`${translation.cardTitle.securities} (${amount})`} />
@@ -23,7 +37,7 @@ function CardSecurities(props) {
         <List dense>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.red}}>
+              <Avatar variant="rounded" className={classes.overdue}>
                 {securities.overdue.amount}
               </Avatar>
             </ListItemAvatar>
@@ -34,7 +48,7 @@ function CardSecurities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.orange}}>
+              <Avatar variant="rounded" className={classes.due}>
                 {securities.due.amount}
               </Avatar>
             </ListItemAvatar>
@@ -45,7 +59,7 @@ function CardSecurities(props) {
           </ListItem>
           <ListItem>
             <ListItemAvatar>
-              <Avatar variant="rounded" style={{backgroundColor: colors.green}}>
+              <Avatar variant="rounded" className={classes.paid}>
                 {securities.paid.amount}
               </Avatar>
             </ListItemAvatar>

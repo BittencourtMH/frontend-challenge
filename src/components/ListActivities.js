@@ -7,16 +7,32 @@ import {
   ListItemText,
   Step,
   StepContent,
-  StepLabel
+  StepLabel,
+  makeStyles
 } from '@material-ui/core';
 import {Event, Group, Mail, Phone} from '@material-ui/icons';
 import differenceDays from '../utils/differenceDays';
 import {formatDate, formatTime} from '../utils/formatDate';
 import replaceVariables from '../utils/replaceVariables';
 
+const useStyles = makeStyles({
+  avatar: {
+    width: 24,
+    height: 24,
+    backgroundColor: props => props.color
+  },
+  stepContent: {
+    borderLeft: '1px solid #bdbdbd'
+  },
+  listItemIcon: {
+    color: props => props.color
+  }
+});
+
 function ListActivities(props) {
   const {activities, label, color, delayed, translation, ...stepProps} = props;
   const now = new Date();
+  const classes = useStyles(props);
 
   function typeIcon(type) {
     switch (type) {
@@ -39,17 +55,17 @@ function ListActivities(props) {
     <Step expanded {...stepProps}>
       <StepLabel
         icon={
-          <Avatar style={{width: 24, height: 24, backgroundColor: color}}> </Avatar>
+          <Avatar className={classes.avatar}> </Avatar>
         }
       >
         {label}
       </StepLabel>
-      <StepContent style={{borderLeft: '1px solid #bdbdbd'}}>
+      <StepContent className={classes.stepContent}>
         <List dense>
           {
             activities.map(activity => (
               <ListItem key={activity.id}>
-                <ListItemIcon style={{color: color}}>
+                <ListItemIcon className={classes.listItemIcon}>
                   {typeIcon(activity.type)}
                 </ListItemIcon>
                 <ListItemText

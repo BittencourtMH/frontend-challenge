@@ -6,9 +6,7 @@ function CardSales(props) {
   return (
     <Card>
       <CardHeader title={translation.cardTitle.sales} />
-      <CardContent>
-        {translation.action.addGraphHere}
-      </CardContent>
+      <CardContent>{translation.action.addGraphHere}</CardContent>
     </Card>
   )
 }

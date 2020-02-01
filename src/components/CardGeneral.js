@@ -12,13 +12,23 @@ import {
   ListItemAvatar,
   ListItemIcon,
   ListItemText,
-  Typography
+  Typography,
+  makeStyles
 } from '@material-ui/core';
 import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@material-ui/icons';
 import formatPhone from '../utils/formatPhone';
 
+const useStyles = makeStyles({
+  photo: {
+    marginRight: 16,
+    width: '4em',
+    height: '4em'
+  }
+})
+
 function CardGeneral(props) {
   const {data, translation} = props;
+  const classes = useStyles();
   return (
     <Card>
       <CardHeader title={translation.cardTitle.generalInfo} />
@@ -26,10 +36,7 @@ function CardGeneral(props) {
         <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar
-                src={data.photo}
-                style={{marginRight: 16, width: '4em', height: '4em'}}
-              />
+              <Avatar src={data.photo} className={classes.photo} />
             </ListItemAvatar>
             <ListItemText
               primary={data.name}

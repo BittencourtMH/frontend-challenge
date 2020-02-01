@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import {
   AppBar,
@@ -35,35 +34,23 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1
   },
-  drawer: {
-    flexShrink: 0,
-    whiteSpace: 'nowrap'
-  },
   drawerClose: {
     overflowX: 'hidden',
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1
-    }
+    width: theme.spacing(9) + 1
   },
   toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar
   },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(3)
   }
 }));
 
-function Header() {
+function Page() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={clsx(classes.appBar)}>
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton color="inherit" edge="start">
             <Menu />
@@ -72,48 +59,71 @@ function Header() {
       </AppBar>
       <Drawer
         variant="permanent"
-        className={clsx(classes.drawer, classes.drawerClose)}
-        classes={{paper: clsx(classes.drawerClose)}}
+        className={classes.drawerClose}
+        classes={{paper: classes.drawerClose}}
       >
-        <div className={classes.toolbar}>
-        </div>
+        <div className={classes.toolbar} />
         <Divider />
         <List>
           <ListItem button>
-            <ListItemIcon><Search /></ListItemIcon>
+            <ListItemIcon>
+              <Search />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><PersonOutline /></ListItemIcon>
+            <ListItemIcon>
+              <PersonOutline />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><Event /></ListItemIcon>
+            <ListItemIcon>
+              <Event />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><LocalOffer /></ListItemIcon>
+            <ListItemIcon>
+              <LocalOffer />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><AttachMoney /></ListItemIcon>
+            <ListItemIcon>
+              <AttachMoney />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><DescriptionOutlined /></ListItemIcon>
+            <ListItemIcon>
+              <DescriptionOutlined />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><BarChart /></ListItemIcon>
+            <ListItemIcon>
+              <BarChart />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><LocalAtm /></ListItemIcon>
+            <ListItemIcon>
+              <LocalAtm />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><MyLocation /></ListItemIcon>
+            <ListItemIcon>
+              <MyLocation />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><DashboardOutlined /></ListItemIcon>
+            <ListItemIcon>
+              <DashboardOutlined />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><SettingsOutlined /></ListItemIcon>
+            <ListItemIcon>
+              <SettingsOutlined />
+            </ListItemIcon>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><Group /></ListItemIcon>
+            <ListItemIcon>
+              <Group />
+            </ListItemIcon>
           </ListItem>
         </List>
       </Drawer>
@@ -125,4 +135,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Page;

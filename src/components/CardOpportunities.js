@@ -35,12 +35,12 @@ const useStyles = makeStyles({
 });
 
 function CardOpportunities(props) {
-  const {opportunities, translation} = props;
+  const {opportunities, translation, elevation} = props;
   const amount = Object.keys(opportunities)
     .reduce((sum, key) => sum + opportunities[key].amount, 0);
   const classes = useStyles();
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader
         title={`${translation.cardTitle.opportunities} (${amount})`}
         action={

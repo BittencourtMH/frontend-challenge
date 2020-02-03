@@ -27,11 +27,11 @@ const useStyles = makeStyles({
 });
 
 function CardSecurities(props) {
-  const {securities, translation} = props;
+  const {securities, translation, elevation} = props;
   const amount = Object.keys(securities).reduce((sum, key) => sum + securities[key].amount, 0);
   const classes = useStyles();
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader title={`${translation.cardTitle.securities} (${amount})`} />
       <CardContent>
         <List dense>

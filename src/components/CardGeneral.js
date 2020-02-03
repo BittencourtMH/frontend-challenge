@@ -30,10 +30,10 @@ const useStyles = makeStyles({
 });
 
 function CardGeneral(props) {
-  const {data, translation} = props;
+  const {data, translation, elevation} = props;
   const classes = useStyles();
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader title={translation.cardTitle.generalInfo} />
       <CardContent>
         <List>

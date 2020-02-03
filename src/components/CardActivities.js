@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 });
 
 function CardActivities(props) {
-  const {activities, translation} = props;
+  const {activities, translation, elevation} = props;
   const total = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
   const [filteredActivities, setActivities] = useState({...activities});
   const classes = useStyles();
@@ -61,7 +61,7 @@ function CardActivities(props) {
   }
 
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader title={translation.cardTitle.activities} />
       <CardContent>
         <TextField

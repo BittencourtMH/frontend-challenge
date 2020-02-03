@@ -21,10 +21,10 @@ const useStyles = makeStyles({
 });
 
 function CardCredit(props) {
-  const {credits, translation} = props;
+  const {credits, translation, elevation} = props;
   const classes = useStyles();
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader title={translation.cardTitle.creditLimit} />
       <CardContent>
         <List dense>

@@ -20,13 +20,13 @@ const useStyles = makeStyles({
 });
 
 function CardLocation(props) {
-  const {address, translation} = props;
+  const {address, translation, elevation} = props;
   const url =
     'https://google.com/maps/embed/v1/place?key=AIzaSyDjhkEQg0w_qaaIRCoALluSs9rZKRyk6pg&q=';
   const {street, neighborhood, postalCode, city, state} = address;
   const classes = useStyles();
   return (
-    <Card>
+    <Card elevation={elevation}>
       <CardHeader title={translation.cardTitle.location} />
       <CardContent>
         <iframe

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Avatar,
   Card,
@@ -10,11 +9,14 @@ import {
   ListItemText,
   makeStyles
 } from '@material-ui/core';
-import {formatCurrencyWithAmount} from '../utils/formatCurrency';
+import { formatCurrencyWithAmount } from '../utils/formatCurrency';
 import getLabel from '../utils/getLabel';
 import colors from '../assets/colors';
 
 const useStyles = makeStyles({
+  card: {
+    height: '100%'
+  },
   overdue: {
     backgroundColor: colors.red
   },
@@ -27,11 +29,11 @@ const useStyles = makeStyles({
 });
 
 function CardSecurities(props) {
-  const {securities, translation, elevation} = props;
+  const { securities, translation, elevation } = props;
   const amount = Object.keys(securities).reduce((sum, key) => sum + securities[key].amount, 0);
   const classes = useStyles();
   return (
-    <Card elevation={elevation}>
+    <Card elevation={elevation} className={classes.card}>
       <CardHeader title={`${translation.cardTitle.securities} (${amount})`} />
       <CardContent>
         <List dense>
@@ -71,7 +73,7 @@ function CardSecurities(props) {
         </List>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export default CardSecurities;

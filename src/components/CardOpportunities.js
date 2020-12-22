@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Avatar,
   Button,
@@ -14,12 +13,15 @@ import {
   ListItemText,
   makeStyles
 } from '@material-ui/core';
-import {Info} from '@material-ui/icons';
-import {formatCurrencyWithAmount} from '../utils/formatCurrency'
+import { Info } from '@material-ui/icons';
+import { formatCurrencyWithAmount } from '../utils/formatCurrency';
 import getLabel from '../utils/getLabel';
 import colors from '../assets/colors';
 
 const useStyles = makeStyles({
+  card: {
+    height: '100%'
+  },
   won: {
     backgroundColor: colors.green
   },
@@ -35,12 +37,12 @@ const useStyles = makeStyles({
 });
 
 function CardOpportunities(props) {
-  const {opportunities, translation, elevation} = props;
+  const { opportunities, translation, elevation } = props;
   const amount = Object.keys(opportunities)
     .reduce((sum, key) => sum + opportunities[key].amount, 0);
   const classes = useStyles();
   return (
-    <Card elevation={elevation}>
+    <Card elevation={elevation} className={classes.card}>
       <CardHeader
         title={`${translation.cardTitle.opportunities} (${amount})`}
         action={
@@ -52,7 +54,7 @@ function CardOpportunities(props) {
       <CardContent>
         <List dense>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar variant="rounded" className={classes.won}>
@@ -65,7 +67,7 @@ function CardOpportunities(props) {
                 />
               </ListItem>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar variant="rounded" className={classes.lost}>
@@ -78,7 +80,7 @@ function CardOpportunities(props) {
                 />
               </ListItem>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar variant="rounded" className={classes.open}>
@@ -91,7 +93,7 @@ function CardOpportunities(props) {
                 />
               </ListItem>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar variant="rounded" className={classes.discarded}>

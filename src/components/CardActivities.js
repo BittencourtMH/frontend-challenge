@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import { useState } from 'react';
 import {
   Avatar,
   Card,
@@ -13,14 +13,21 @@ import {
   TextField,
   makeStyles
 } from '@material-ui/core';
-import {Search} from '@material-ui/icons';
+import { Search } from '@material-ui/icons';
 import ListActivities from './ListActivities';
 import getLabel from '../utils/getLabel';
 import colors from '../assets/colors';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+  card: {
+    height: '100%'
+  },
   list: {
-    display: 'flex'
+    [theme.breakpoints.up('md')]: {
+      display: 'grid',
+      gridAutoFlow: 'column',
+      gridAutoColumns: '1fr'
+    }
   },
   total: {
     backgroundColor: colors.gray
@@ -37,12 +44,12 @@ const useStyles = makeStyles({
   done: {
     backgroundColor: colors.green
   }
-});
+}));
 
 function CardActivities(props) {
-  const {activities, translation, elevation} = props;
+  const { activities, translation, elevation } = props;
   const total = Object.keys(activities).reduce((sum, key) => sum + activities[key].length, 0);
-  const [filteredActivities, setActivities] = useState({...activities});
+  const [filteredActivities, setActivities] = useState({ ...activities });
   const classes = useStyles();
 
   function filterActivities(event) {
@@ -51,7 +58,7 @@ function CardActivities(props) {
     Object.keys(activities).forEach(key => {
       filtered[key] = [];
       activities[key].forEach(activity => {
-        const {description, person} = activity;
+        const { description, person } = activity;
         if (description.toLowerCase().includes(text) || person.toLowerCase().includes(text)) {
           filtered[key].push(activity);
         }
@@ -61,7 +68,7 @@ function CardActivities(props) {
   }
 
   return (
-    <Card elevation={elevation}>
+    <Card elevation={elevation} className={classes.card}>
       <CardHeader title={translation.cardTitle.activities} />
       <CardContent>
         <TextField
@@ -187,7 +194,7 @@ function CardActivities(props) {
         </Stepper>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export default CardActivities;

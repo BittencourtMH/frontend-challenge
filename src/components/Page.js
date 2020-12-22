@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AppBar,
   Divider,
@@ -57,7 +56,7 @@ function Page() {
       <Drawer
         variant="permanent"
         className={classes.drawerClose}
-        classes={{paper: classes.drawerClose}}
+        classes={{ paper: classes.drawerClose }}
       >
         <div className={classes.toolbar} />
         <Divider />

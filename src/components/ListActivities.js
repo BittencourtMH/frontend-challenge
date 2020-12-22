@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Avatar,
   List,
@@ -10,9 +9,9 @@ import {
   StepLabel,
   makeStyles
 } from '@material-ui/core';
-import {Event, Group, Mail, Phone} from '@material-ui/icons';
+import { Event, Group, Mail, Phone } from '@material-ui/icons';
 import differenceDays from '../utils/differenceDays';
-import {formatDate, formatTime} from '../utils/formatDate';
+import { formatDate, formatTime } from '../utils/formatDate';
 import replaceVariables from '../utils/replaceVariables';
 
 const useStyles = makeStyles({
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
 });
 
 function ListActivities(props) {
-  const {activities, label, color, delayed, translation, ...stepProps} = props;
+  const { activities, label, color, delayed, translation, ...stepProps } = props;
   const now = new Date();
   const classes = useStyles(props);
 
@@ -45,9 +44,9 @@ function ListActivities(props) {
 
   function dateText(date) {
     if (delayed) {
-      return replaceVariables(translation.date.daysLate, {days: differenceDays(date, now)});
+      return replaceVariables(translation.date.daysLate, { days: differenceDays(date, now) });
     }
-    const object = {date: formatDate(date, now), time: formatTime(date)};
+    const object = { date: formatDate(date, now), time: formatTime(date) };
     return replaceVariables(translation.date.dateAndTime, object);
   }
 

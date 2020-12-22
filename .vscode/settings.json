@@ -1,0 +1,29 @@
+{
+  "css.lint.compatibleVendorPrefixes": "warning",
+  "css.lint.duplicateProperties": "error",
+  "css.lint.float": "warning",
+  "css.lint.unknownVendorSpecificProperties": "warning",
+  "css.lint.zeroUnits": "error",
+  "editor.detectIndentation": false,
+  "editor.find.autoFindInSelection": "always",
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    120
+  ],
+  "editor.tabSize": 2,
+  "editor.unusualLineTerminators": "auto",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "javascript.format.semicolons": "insert",
+  "javascript.preferences.quoteStyle": "single",
+  "html.format.endWithNewline": true,
+  "html.format.maxPreserveNewLines": 1,
+  "scss.lint.compatibleVendorPrefixes": "warning",
+  "scss.lint.duplicateProperties": "error",
+  "scss.lint.float": "warning",
+  "scss.lint.unknownVendorSpecificProperties": "warning",
+  "scss.lint.zeroUnits": "error",
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "single"
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Fab, Grid, makeStyles} from '@material-ui/core';
-import {Assignment} from '@material-ui/icons';
+import { Fab, Grid, makeStyles } from '@material-ui/core';
+import { Assignment } from '@material-ui/icons';
 import CardActivities from './CardActivities';
 import CardCredit from './CardCredit';
 import CardGeneral from './CardGeneral';
@@ -11,8 +11,10 @@ import CardSecurities from './CardSecurities';
 import translation from '../assets/translations/pt';
 import data from '../assets/data';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   content: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
     justifyContent: 'center'
   },
   fab: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles({
     bottom: 16,
     right: 16
   }
-});
+}));
 
 function Content() {
   const spacing = 2;
@@ -29,7 +31,7 @@ function Content() {
   return (
     <React.Fragment>
       <Grid container spacing={spacing} className={classes.content}>
-        <Grid container item xs={12} lg={4} xl={6} spacing={spacing}>
+        <Grid container item spacing={spacing} xs={12} lg={4} xl={6}>
           <Grid item xs={12} md={6} lg={12} xl={6}>
             <CardGeneral data={data} translation={translation} elevation={elevation} />
           </Grid>

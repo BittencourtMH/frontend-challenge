@@ -15,10 +15,13 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import {Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp} from '@material-ui/icons';
+import { Facebook, Instagram, LinkedIn, Mail, Phone, Twitter, WhatsApp } from '@material-ui/icons';
 import formatPhone from '../utils/formatPhone';
 
 const useStyles = makeStyles({
+  card: {
+    height: '100%'
+  },
   photo: {
     marginRight: 16,
     width: '4em',
@@ -30,10 +33,10 @@ const useStyles = makeStyles({
 });
 
 function CardGeneral(props) {
-  const {data, translation, elevation} = props;
+  const { data, translation, elevation } = props;
   const classes = useStyles();
   return (
-    <Card elevation={elevation}>
+    <Card elevation={elevation} className={classes.card}>
       <CardHeader title={translation.cardTitle.generalInfo} />
       <CardContent>
         <List>
@@ -54,7 +57,7 @@ function CardGeneral(props) {
                   />
                 </React.Fragment>
               }
-              secondaryTypographyProps={{component: 'div'}}
+              secondaryTypographyProps={{ component: 'div' }}
             />
           </ListItem>
         </List>

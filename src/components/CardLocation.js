@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Card,
   CardContent,
@@ -9,9 +8,12 @@ import {
   ListItemText,
   makeStyles
 } from '@material-ui/core';
-import {LocationOn} from '@material-ui/icons'
+import { LocationOn } from '@material-ui/icons';
 
 const useStyles = makeStyles({
+  card: {
+    height: '100%'
+  },
   googleMaps: {
     width: '100%',
     height: 200,
@@ -20,13 +22,13 @@ const useStyles = makeStyles({
 });
 
 function CardLocation(props) {
-  const {address, translation, elevation} = props;
+  const { address, translation, elevation } = props;
   const url =
     'https://google.com/maps/embed/v1/place?key=AIzaSyDjhkEQg0w_qaaIRCoALluSs9rZKRyk6pg&q=';
-  const {street, neighborhood, postalCode, city, state} = address;
+  const { street, neighborhood, postalCode, city, state } = address;
   const classes = useStyles();
   return (
-    <Card elevation={elevation}>
+    <Card elevation={elevation} className={classes.card}>
       <CardHeader title={translation.cardTitle.location} />
       <CardContent>
         <iframe
